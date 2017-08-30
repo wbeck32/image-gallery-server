@@ -1,0 +1,36 @@
+{
+  "name": "image-gallery-server",
+  "version": "1.0.0",
+  "description": "Node server to use with React app image-gallery",
+  "main": "server.js",
+  "scripts": {
+    "test:watch:nodemon": "nodemon --watch lib --watch tests --exec 'npm test'",
+    "test:watch": "npm test -- -w",
+    "test": "mocha tests --reporter mocha-better-spec-reporter",
+    "start": "npm run test:watch:nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wbeck32/image-gallery-server.git"
+  },
+  "author": "Wendy Beck",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wbeck32/image-gallery-server/issues"
+  },
+  "homepage": "https://github.com/wbeck32/image-gallery-server#readme",
+  "devDependencies": {},
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "chai": "^4.1.1",
+    "chai-http": "^3.0.0",
+    "dotenv": "^4.0.0",
+    "express": "^4.15.4",
+    "mocha": "^3.5.0",
+    "mocha-better-spec-reporter": "^3.1.0",
+    "mongodb": "^2.2.31",
+    "mongoose": "^4.11.9",
+    "morgan": "^1.8.2",
+    "nodemon": "^1.11.0"
+  }
+}
