@@ -21,8 +21,6 @@ describe('Image model tests', () => {
   it('image model fails validation', async () => {
     const failValidate = await testPhotoInvalid
       .validate(response => {
-        // console.log('fail: ', 'name: ',response.errors.title.name, 'message: ',response.errors.title.message);
-
         return response;
       })
       .catch(response => {
@@ -50,7 +48,7 @@ describe('Image model tests', () => {
     });
 });
 
-describe('album model tests', () => {
+describe('Album model tests', () => {
   it('album model fails validation', () => {}),
     it('album model passes validation', () => {});
 });

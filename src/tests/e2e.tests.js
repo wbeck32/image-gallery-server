@@ -1,11 +1,8 @@
 const chai = require('chai');
 const assert = chai.assert;
-const chaiHttp = require('chai-http');
-chai.use(chaiHttp);
-const app = require('../app');
 const connect = require('../connect');
 const connection = require('mongoose').connection;
-const req = chai.request(app);
+const req = require('../helpers/request');
 const photos = require('../helpers/imageurls.json');
 
 describe('image mongoose tests', () => {

@@ -22,9 +22,6 @@ router
 
 module.exports = router;
 
-//get all images
-//delete an image
-//post an image
 // --albums--for-bonus
 //create an album
 //add images to an album
