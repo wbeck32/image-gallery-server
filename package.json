@@ -6,7 +6,7 @@
   "scripts": {
     "test:watch:nodemon": "nodemon --watch lib --watch tests --exec 'npm test'",
     "test:watch": "npm test -- -w",
-    "test": "mocha tests --reporter mocha-better-spec-reporter",
+    "test": "mocha --recursive './src/tests' --reporter mocha-better-spec-reporter",
     "start": "npm run test:watch:nodemon"
   },
   "repository": {
@@ -26,11 +26,13 @@
     "chai-http": "^3.0.0",
     "dotenv": "^4.0.0",
     "express": "^4.15.4",
+    "flickrapi": "^0.6.0",
     "mocha": "^3.5.0",
     "mocha-better-spec-reporter": "^3.1.0",
     "mongodb": "^2.2.31",
     "mongoose": "^4.11.9",
     "morgan": "^1.8.2",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "superagent": "^3.6.0"
   }
 }
