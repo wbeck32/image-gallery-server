@@ -3,7 +3,7 @@ function getErrorHandler(log = console.log) {
   // eslint-disable-next-line no-unused-vars
   return function errorHandler(err, req, res, next) {
     let code, error;
-
+    console.log('in error handler: ', err);
     // Mongoose Validation and Cast Errors
     if (err.errors) {
       const validations = err.errors;

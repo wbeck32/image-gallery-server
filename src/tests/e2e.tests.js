@@ -28,21 +28,19 @@ describe('image mongoose tests', () => {
   };
 
   it('DELETE image by id', async () => {
-    const responseInPost = await req.post('/images').send(testPhotoTwo);
+    const responseInPost = await req.post('/api/images').send(testPhotoTwo);
     const responseAfterDelete = await req
-      .delete('/images')
+      .delete('/api/images')
       .query({ id: responseInPost.body._id });
     assert.equal(1, responseAfterDelete.body.ok);
   }),
     it('POST image', async () => {
-      const responseInPost = await req.post('/images').send(testPhotoOne);
+      const responseInPost = await req.post('/api/images').send(testPhotoOne);
       assert.equal(200, responseInPost.status);
     }),
     it('GET all images', async () => {
-      const responseInGet = await req.get('/images');
+      const responseInGet = await req.get('/api/images');
       assert.equal(200, responseInGet.status);
       assert.equal(1, responseInGet.body.length);
     });
 });
-
-// https://www.flickr.com/photos/{user-id}/{photo-id} - individual photo
