@@ -18,11 +18,12 @@ describe('Image model tests', () => {
     const failValidate = await testPhoto.validate().catch(() => {
         throw (new Error('Validation errors'),
         ({ errors }) => {
-          console.log(errors);
           // assert.equal();
           // assert.equal();
         });
       });
+      console.log(failValidate);
+
   }),
     it('image model passes validation', () => {
       const testPhoto = new Image({

@@ -35,15 +35,16 @@ describe('image mongoose tests', () => {
     const responseAfterDelete = await req
       .delete('/images')
       .query({ id: responseInPost.body._id });
-    console.log('after delete: ', responseAfterDelete.body);
+    assert.equal(1, responseAfterDelete.body.ok);
   }),
     it('POST image', async () => {
       const responseInPost = await req.post('/images').send(testPhotoOne);
-      // console.log('post: ', responseInPost.body);
+      assert.equal(200, responseInPost.status);
     }),
     it('GET all images', async () => {
       const responseInGet = await req.get('/images');
-      // console.log('get: ', responseInGet.body);
+      assert.equal(200, responseInGet.status);
+      assert.equal(1, responseInGet.body.length);
     });
 });
 
