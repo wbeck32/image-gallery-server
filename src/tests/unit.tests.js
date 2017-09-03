@@ -30,7 +30,7 @@ describe('Image model tests', () => {
           'Path `title` is required.'
         );
         ({ errors }) => {
-          console.log('errors: ', errors);
+          // console.log('errors: ', errors);
         };
       });
   }),
@@ -42,7 +42,7 @@ describe('Image model tests', () => {
         .catch(() => {
           throw (new Error('Validation errors'),
           ({ errors }) => {
-            console.log('errors: ', errors);
+            // console.log('errors: ', errors);
           });
         });
     });

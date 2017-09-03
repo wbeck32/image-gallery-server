@@ -28,18 +28,18 @@ describe('image mongoose tests', () => {
   };
 
   it('DELETE image by id', async () => {
-    const responseInPost = await req.post('/api/images').send(testPhotoTwo);
+    const responseInPost = await req.post('/images').send(testPhotoTwo);
     const responseAfterDelete = await req
-      .delete('/api/images')
+      .delete('/images')
       .query({ id: responseInPost.body._id });
     assert.equal(1, responseAfterDelete.body.ok);
   }),
     it('POST image', async () => {
-      const responseInPost = await req.post('/api/images').send(testPhotoOne);
+      const responseInPost = await req.post('/images').send(testPhotoOne);
       assert.equal(200, responseInPost.status);
     }),
     it('GET all images', async () => {
-      const responseInGet = await req.get('/api/images');
+      const responseInGet = await req.get('/images');
       assert.equal(200, responseInGet.status);
       assert.equal(1, responseInGet.body.length);
     });
