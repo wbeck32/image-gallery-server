@@ -17,7 +17,6 @@ router
     res.send(response);
   })
   .delete('/', jsonParser, async (req, res, next) => {
-
     res.setHeader('Access-Control-Allow-Origin', '*');
     const { id } = req.query;
     const deleteOne = await Image.deleteOne({ _id: id });
