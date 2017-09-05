@@ -11,6 +11,8 @@ router
     res.send(allImages);
   })
   .post('/', cors(), async (req, res, next) => {
+    console.log('in post: ',req.body);
+
     res.setHeader('Access-Control-Allow-Origin', '*');
     const image = new Image(req.body);
     const response = await image.save(image);
