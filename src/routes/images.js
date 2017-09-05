@@ -13,7 +13,7 @@ router
     const response = await image.save(image);
     res.send(response);
   })
-  .delete('/images', jsonParser, async (req, res, next) => {
+  .delete('/images', async (req, res, next) => {
     const { id } = req.query;
     const deleteOne = await Image.deleteOne({ _id: id });
     res.send(deleteOne);
