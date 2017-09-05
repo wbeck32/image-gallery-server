@@ -1,25 +1,19 @@
 const express = require('express');
-var cors = require('cors');
 const router = express.Router();
 const jsonParser = require('body-parser').json();
 const Image = require('../models/Image');
 
 router
-  .get('/', cors(), async (req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
+  .get('/images', async (req, res, next) => {
     const allImages = await Image.find();
     res.send(allImages);
   })
-  .post('/', cors(), async (req, res, next) => {
-    console.log('in post: ',req.body);
-
-    res.setHeader('Access-Control-Allow-Origin', '*');
+  .post('/images', async (req, res, next) => {
     const image = new Image(req.body);
     const response = await image.save(image);
     res.send(response);
   })
-  .delete('/', jsonParser, async (req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
+  .delete('/images', jsonParser, async (req, res, next) => {
     const { id } = req.query;
     const deleteOne = await Image.deleteOne({ _id: id });
     res.send(deleteOne);
