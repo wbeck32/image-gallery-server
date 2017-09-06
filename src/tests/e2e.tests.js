@@ -5,7 +5,7 @@ const connection = require('mongoose').connection;
 const req = require('../helpers/request');
 const photos = require('../helpers/imageurls.json');
 
-describe('image mongoose tests', () => {
+describe.skip('image mongoose tests', () => {
   before(async () => {
     await connect();
     await connection.dropDatabase();
@@ -31,7 +31,7 @@ describe('image mongoose tests', () => {
     const responseInPost = await req.post('/api/images').send(testPhotoTwo);
     const responseAfterDelete = await req
       .delete('/api/images')
-      .query({ id: responseInPost.body._id });
+      .query({ _id: responseInPost.body._id });
     assert.equal(1, responseAfterDelete.body.ok);
   }),
     it('POST image', async () => {

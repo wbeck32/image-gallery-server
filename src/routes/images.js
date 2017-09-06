@@ -10,19 +10,18 @@ router
   })
   .post('/images', async (req, res, next) => {
     const image = new Image(req.body);
-    const response = await image.save(image);
-    res.send(response);
+    console.log(image.title)
+    const find = await Image.find({title: image.title})
+    console.log(find)
+    find === null ? res.send(await image.save(image)) : res.send(null)
+    // const image = new Image(req.body);
+    // res.send(response);
   })
-  .delete('/images', async (req, res, next) => {
-    const { id } = req.query;
-    const deleteOne = await Image.deleteOne({ _id: id });
+  .delete('/images', jsonParser, async (req, res, next) => {
+    const { _id } = req.query;
+    const deleteOne = await Image.deleteOne({ _id: _id });
     res.send(deleteOne);
   })
   .use(jsonParser);
 
 module.exports = router;
-
-// --albums--for-bonus
-//create an album
-//add images to an album
-//delete images
