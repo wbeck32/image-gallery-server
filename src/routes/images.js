@@ -10,12 +10,9 @@ router
   })
   .post('/images', async (req, res, next) => {
     const image = new Image(req.body);
-    console.log(image.title)
     const find = await Image.find({title: image.title})
-    console.log(find)
-    find === null ? res.send(await image.save(image)) : res.send(null)
-    // const image = new Image(req.body);
-    // res.send(response);
+    const savedImage = await image.save(image);
+    res.send(savedImage);
   })
   .delete('/images', jsonParser, async (req, res, next) => {
     const { _id } = req.query;

@@ -5,7 +5,7 @@ const connection = require('mongoose').connection;
 const req = require('../helpers/request');
 const photos = require('../helpers/imageurls.json');
 
-describe.skip('image mongoose tests', () => {
+describe('image mongoose tests', () => {
   before(async () => {
     await connect();
     await connection.dropDatabase();
